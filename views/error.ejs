@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab' rel='stylesheet' type='text/css'>
+  </head>
+
+  <body>
+    <style> 
+        h2{
+            color: red;
+        }
+    </style>
+      <h1> Error</h1>
+      <br><br>
+    <form>
+      <fieldset>
+        <h2> <%= error %> </h2>
+        <br>
+         <p>
+          <a href = "http://localhost:3000/create">Create an Account</a>
+          <b> Or </b>  
+          <a href = "http://localhost:3000">Try Again</a>
+        </p>
+      </fieldset>
+    </form>
+  </body>
+  </html>

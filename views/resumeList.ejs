@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= siteTitle %>--<%= pageTitle %></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab' rel='stylesheet' type='text/css'>
+  </head>
+
+  <body id = "<%= accountID %>" class = "<%= numResumes%>">
+  <%console.log(accountID)%>
+    <style>
+      li{
+        font-weight: bold;
+      }
+    </style>
+
+    <center>
+      <h1> Resumes </h1>
+      <br>
+
+    <form align="right" name="form1" method="POST" action="/logout">
+      <label class="logoutLblPos">
+      <input name="submit2" type="submit" id="submit2" value="log out">
+      </label>
+    </form>
+    
+    <form action = "/resumes/upload/" method = "POST" enctype="multipart/form-data">
+    <div class = 'resumes-list'></div>
+
+    <br>
+
+    <script language="JavaScript" type="text/javascript">
+        var output = '';
+        var count = 1;
+        for(i = 1; i <= document.body.className; i++){
+          output += '    <li>';
+          output += '       <a href = "http://localhost:3000/resumes/' + document.body.id + '/' + i + '">Resume ' + count + ' </a>';
+          output += '    </li>';
+          count  += 1;
+        }
+        $('.resumes-list').html(output);    
+    </script>
+
+    <script language="JavaScript" type="text/javascript">
+      function HandleBrowseClick(){
+        var fileinput = document.getElementById("browse");
+        var account = document.getElementById("account");
+        account.value = document.body.id;
+        console.log(account.value);
+        fileinput.click();
+      }
+      function Handlechange(){
+        var fileinput = document.getElementById("browse");
+        var textinput = document.getElementById("filename");
+        textinput.value = fileinput.value.substring(12, fileinput.value.length);
+      }
+    </script>
+
+      <input type="file" id="browse" name="fileupload" style="display: none" onChange="Handlechange();"/>
+      <input type="text" name = "uploadFile" id="filename" readonly="true"/>
+      <input type = "text" name = "user" id = "account"  style= "display: none"/> 
+      <input type="button" value="Add a Resume" id="fakeBrowse" onclick="HandleBrowseClick();"/>
+      <button type = "submit" class = "logged-in">Upload</button>
+
+    </center>
+    </form>
+  </body>
+  </html>

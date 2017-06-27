@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= siteTitle %>--<%= pageTitle %></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab' rel='stylesheet' type='text/css'>
+  </head>
+
+  <body id = "<% pageID %>">
+    <center>
+      <h1> University of Gotham </h1>
+      <h2> Resumes</h2>
+    <form action = "/login" method = "POST" class = "login-form" >
+      <fieldset >
+        <legend>Log-in</legend>
+        <p>
+          
+          <label for ="login-username">Username</label>
+          <input name = "username" type = "text"
+                 id = "myText"
+                 placeholder = "Enter Username" />
+        </p>
+        <p>
+          <label for = "login-password">Password</label>
+          <input name = "password" type = "password"
+                  id = "myPwd"
+                  placeholder = "Enter Password" />
+        </p>
+        <p>
+          <button type = "submit" class = "logged-in">Submit</button>
+        </p>
+        <p>
+          <a href = "http://localhost:3000/create">Create an Account</a>
+        </p>
+        <div class = "error-text"></div>
+      </fieldset>
+    </form>
+    </center>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    
+  </body>
+  </html>
