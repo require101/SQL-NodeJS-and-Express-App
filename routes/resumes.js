@@ -53,6 +53,7 @@ router.get('/resumes/:accID', function(req, res, next) {
 
 });
 
+
 router.get('/resumes/:accID/:resID', function(req,res,next){
 // display the pdf resume
     var resume = req.params.resID;

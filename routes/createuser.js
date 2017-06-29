@@ -15,6 +15,8 @@ router.post('/creating', function(req, res, next){
   newu = req.body.username;
   newp = req.body.password;
   retype = req.body.retype;
+  check = req.body.admin;
+  console.log(check);
 
   // See if the passwords match
   if (newp !== retype){
@@ -40,10 +42,18 @@ router.post('/creating', function(req, res, next){
       });
     }
     else{
-      var newsql = 'INSERT accounts (usernames, passwords) VALUES (:newu, :newp)'
+      var adminID;
+      console.log(check);
+      if (check === 'on'){
+        adminID = 1;
+      }
+      else{
+        adminID = 0;
+      }
+      var newsql = 'INSERT accounts (usernames, passwords, isAdmin) VALUES (:newu, :newp, :adminID)'
 
       //if username is unique then insert data
-      Bookshelf.knex.raw(newsql, {newu, newp}).then(function(resp){
+      Bookshelf.knex.raw(newsql, {newu, newp, adminID}).then(function(resp){
         console.log(resp);
         res.send(`
         <p>
